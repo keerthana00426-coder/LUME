@@ -151,4 +151,942 @@
         header.scrolled {
             background-color: rgba(250, 246, 240, 0.95);
             backdrop-filter: blur(10px);
-            padding: 14px
+            padding: 14px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.8rem;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .brand-logo {
+            color: var(--espresso);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--espresso);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--terracotta);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        header.scrolled .mobile-toggle {
+            color: var(--espresso);
+        }
+
+        /* --- Hero / Welcome Section --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(28, 19, 14, 0.65), rgba(28, 19, 14, 0.75)),
+                        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 4.8rem);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 40px;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Special Items Section --- */
+        .specials {
+            background-color: var(--bg-sand);
+        }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .special-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(35, 24, 18, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .special-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(35, 24, 18, 0.1);
+        }
+
+        .special-img-wrap {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .special-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .special-card:hover .special-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .special-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background-color: var(--espresso);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .special-body {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .special-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .special-title-row h3 {
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--terracotta);
+            font-size: 1.15rem;
+        }
+
+        .special-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Menu Section --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 26px;
+            border-radius: 50px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            color: var(--espresso);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--espresso);
+            color: var(--white);
+            border-color: var(--espresso);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+            gap: 28px 48px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(35, 24, 18, 0.2);
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .menu-item.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-item-info {
+            padding-right: 20px;
+        }
+
+        .menu-item-info h4 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dietary-badge {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: rgba(94, 110, 88, 0.15);
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        .menu-item-info p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* --- Customer Reviews Section --- */
+        .reviews {
+            background-color: var(--espresso);
+            color: var(--white);
+        }
+
+        .reviews .section-title {
+            color: var(--white);
+        }
+
+        .reviews .section-desc {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--roast);
+            padding: 36px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #E5A93C;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .review-text {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .reviewer-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .reviewer-info h5 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .reviewer-info span {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- Hours & Location Section --- */
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: stretch;
+        }
+
+        .visit-card {
+            background: var(--white);
+            padding: 44px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(35, 24, 18, 0.05);
+        }
+
+        .visit-block {
+            margin-bottom: 32px;
+        }
+
+        .visit-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .visit-block h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.98rem;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 50px;
+            background-color: rgba(94, 110, 88, 0.15);
+            color: var(--sage);
+            margin-bottom: 16px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--sage);
+        }
+
+        .address-text {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1.02rem;
+        }
+
+        .map-wrapper {
+            border-radius: var(--radius);
+            overflow: hidden;
+            min-height: 400px;
+            box-shadow: 0 10px 30px rgba(35, 24, 18, 0.05);
+            position: relative;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            min-height: 420px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-sand);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            color: var(--terracotta);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* --- Responsive Breakpoints --- */
+        @media (max-width: 900px) {
+            .visit-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-cream);
+                flex-direction: column;
+                align-items: center;
+                padding: 32px 0;
+                gap: 24px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+            }
+            .nav-links.open {
+                transform: translateY(0);
+            }
+            .nav-links a {
+                color: var(--espresso);
+                font-size: 1.1rem;
+            }
+            .section-padding {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#welcome" class="brand-logo">Ember & Grounds</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#welcome">Welcome</a></li>
+                <li><a href="#specials">House Specials</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#visit">Hours & Location</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. Welcome / Hero Section -->
+    <section id="welcome" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Small-Batch Roastery & Bakery</span>
+                <h1>Slow Mornings, Crafted to Perfection.</h1>
+                <p>Welcome to Ember & Grounds. We ethically source single-origin beans, roast them in-house every Tuesday, and pair every cup with warm, laminated pastries baked at dawn.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+                    <a href="#visit" class="btn btn-outline">Find Our Café</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Special Items Section -->
+    <section id="specials" class="specials section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Seasonal Favorites</span>
+                <h2 class="section-title">Signature & Special Items</h2>
+                <p class="section-desc">Limited-run creations dreamed up by our head barista and pastry chef using peak-season ingredients.</p>
+            </div>
+
+            <div class="specials-grid">
+                <!-- Special 1 -->
+                <article class="special-card">
+                    <div class="special-img-wrap">
+                        <span class="special-tag">Barista's Pick</span>
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80" alt="Smoked Maple Cortado">
+                    </div>
+                    <div class="special-body">
+                        <div>
+                            <div class="special-title-row">
+                                <h3>Smoked Maple Cortado</h3>
+                                <span class="price">$5.50</span>
+                            </div>
+                            <p>Double ristretto pulled from our Ethiopian Yirgacheffe blend, velvety steamed oat milk, and barrel-aged Vermont maple syrup with a pinch of sea salt.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Special 2 -->
+                <article class="special-card">
+                    <div class="special-img-wrap">
+                        <span class="special-tag">Baked Fresh 7 AM</span>
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Cardamom Pistachio Cruffin">
+                    </div>
+                    <div class="special-body">
+                        <div>
+                            <div class="special-title-row">
+                                <h3>Cardamom Pistachio Cruffin</h3>
+                                <span class="price">$6.25</span>
+                            </div>
+                            <p>Flaky croissant-muffin hybrid rolled in freshly ground green cardamom sugar and filled with roasted Sicilian pistachio pastry cream.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Special 3 -->
+                <article class="special-card">
+                    <div class="special-img-wrap">
+                        <span class="special-tag">All-Day Brunch</span>
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414342d8?auto=format&fit=crop&w=800&q=80" alt="Whipped Ricotta & Fig Tartine">
+                    </div>
+                    <div class="special-body">
+                        <div>
+                            <div class="special-title-row">
+                                <h3>Whipped Ricotta & Fig Tartine</h3>
+                                <span class="price">$13.50</span>
+                            </div>
+                            <p>Thick-cut country sourdough topped with lemon-thyme whipped ricotta, black mission figs, toasted walnuts, and wildflower hot honey.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Interactive Menu Section -->
+    <section id="menu" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Daily Offerings</span>
+                <h2 class="section-title">Our Café Menu</h2>
+                <p class="section-desc">Oat, almond, and macadamia milks available at no extra charge. All syrups are house-made from whole botanicals.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="menu-tabs" role="tablist">
+                <button class="tab-btn active" data-filter="all">All Items</button>
+                <button class="tab-btn" data-filter="coffee">Espresso & Brews</button>
+                <button class="tab-btn" data-filter="tea">Matcha & Tea</button>
+                <button class="tab-btn" data-filter="bakery">Bakery & Kitchen</button>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Coffee -->
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-info">
+                        <h4>Classic Flat White</h4>
+                        <p>Double shot of signature house espresso topped with silky micro-foamed milk.</p>
+                    </div>
+                    <span class="price">$4.75</span>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-info">
+                        <h4>Single-Origin Pour Over <span class="dietary-badge">V60</span></h4>
+                        <p>Hand-brewed to order. Ask your barista about today's rotating micro-lot roast.</p>
+                    </div>
+                    <span class="price">$5.25</span>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-info">
+                        <h4>Honey Lavender Latte</h4>
+                        <p>Espresso, steamed milk, organic culinary lavender infusion, and raw local honey.</p>
+                    </div>
+                    <span class="price">$5.75</span>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-info">
+                        <h4>Kyoto Slow-Drip Cold Brew</h4>
+                        <p>Steeped for 16 hours in cold filtered water for a chocolatey, low-acid finish.</p>
+                    </div>
+                    <span class="price">$5.00</span>
+                </div>
+
+                <!-- Tea -->
+                <div class="menu-item" data-category="tea">
+                    <div class="menu-item-info">
+                        <h4>Ceremonial Uji Matcha Latte <span class="dietary-badge">GF</span></h4>
+                        <p>First-harvest shade-grown Japanese green tea whisked to order with your choice of milk.</p>
+                    </div>
+                    <span class="price">$6.00</span>
+                </div>
+
+                <div class="menu-item" data-category="tea">
+                    <div class="menu-item-info">
+                        <h4>Spiced Masala Chai</h4>
+                        <p>Assam black tea simmered with crushed ginger, cinnamon, cloves, and black pepper.</p>
+                    </div>
+                    <span class="price">$5.25</span>
+                </div>
+
+                <!-- Bakery & Kitchen -->
+                <div class="menu-item" data-category="bakery">
+                    <div class="menu-item-info">
+                        <h4>Brown Butter Almond Croissant</h4>
+                        <p>Twice-baked sourdough croissant filled with toasted almond frangipane and flaked almonds.</p>
+                    </div>
+                    <span class="price">$5.50</span>
+                </div>
+
+                <div class="menu-item" data-category="bakery">
+                    <div class="menu-item-info">
+                        <h4>Smashed Avocado & Dukkah Toast <span class="dietary-badge">Vegan</span></h4>
+                        <p>Heirloom sourdough, crushed avocado, pickled shallots, Egyptian hazelnut dukkah, and chili oil.</p>
+                    </div>
+                    <span class="price">$12.50</span>
+                </div>
+
+                <div class="menu-item" data-category="bakery">
+                    <div class="menu-item-info">
+                        <h4>Soft-Scrambled Brioche Bun</h4>
+                        <p>Pasture-raised eggs, aged white cheddar, caramelized onion jam, and chives on toasted brioche.</p>
+                    </div>
+                    <span class="price">$11.00</span>
+                </div>
+
+                <div class="menu-item" data-category="bakery">
+                    <div class="menu-item-info">
+                        <h4>Dark Chocolate Sea Salt Cookie <span class="dietary-badge">GF</span></h4>
+                        <p>70% Valrhona dark chocolate chunks baked with almond flour and topped with Maldon sea salt.</p>
+                    </div>
+                    <span class="price">$4.25</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Customer Reviews Section -->
+    <section id="reviews" class="reviews section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Community Love</span>
+                <h2 class="section-title">What Our Regulars Say</h2>
+                <p class="section-desc">Rated 4.9/5 across 650+ local reviews.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Hands down the best cortado in the city. The sunlight pouring through the front windows at 8 AM paired with a warm cardamom cruffin is my favorite ritual of the week."</p>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">EM</div>
+                        <div class="reviewer-info">
+                            <h5>Elena Martinez</h5>
+                            <span>Local Architect & Regular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Finally a café that takes both pour-over coffee and food seriously. The Whipped Ricotta Tartine is restaurant-quality, and the baristas are genuinely welcoming."</p>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">DK</div>
+                        <div class="reviewer-info">
+                            <h5>David Kim</h5>
+                            <span>Coffee Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Warm acoustics, great vinyl playlist, fast Wi-Fi in the back lounge, and zero upcharge for oat milk. Ember & Grounds nails every single detail."</p>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">SR</div>
+                        <div class="reviewer-info">
+                            <h5>Sophia Reynolds</h5>
+                            <span>Freelance Writer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Opening Hours & Location Section -->
+    <section id="visit" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Plan Your Visit</span>
+                <h2 class="section-title">Opening Hours & Location</h2>
+                <p class="section-desc">Pull up a chair at the espresso bar or grab a sunlit table on our garden patio.</p>
+            </div>
+
+            <div class="visit-grid">
+                <!-- Info Card -->
+                <div class="visit-card">
+                    <div class="visit-block">
+                        <div class="status-pill" id="liveStatus">
+                            <span class="status-dot"></span>
+                            <span id="statusText">Checking hours...</span>
+                        </div>
+                        <h3>Opening Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday – Friday</span> <strong>7:00 AM – 6:00 PM</strong></li>
+                            <li><span>Saturday</span> <strong>7:30 AM – 7:00 PM</strong></li>
+                            <li><span>Sunday</span> <strong>8:00 AM – 5:00 PM</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="visit-block">
+                        <h3>Location & Contact</h3>
+                        <p class="address-text">
+                            <strong>412 Roastery Lane, Arts District</strong><br>
+                            Portland, OR 97209
+                        </p>
+                        <p class="address-text">
+                            Phone: (503) 555-0194<br>
+                            Email: hello@emberandgrounds.com
+                        </p>
+                        <a href="https://maps.google.com/?q=Portland,OR" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px;">Get Directions</a>
+                    </div>
+                </div>
+
+                <!-- Map Embed -->
+                <div class="map-wrapper">
+                    <iframe 
+                        title="Ember & Grounds Café Location Map"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=-122.6880%2C45.5200%2C-122.6700%2C45.5300&amp;layer=mapnik&amp;marker=45.5250%2C-122.6790" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">Ember & Grounds</div>
+                <div class="footer-socials">
+                    <a href="#welcome">Instagram</a>
+                    <a href="#welcome">Spotify Playlist</a>
+                    <a href="#menu">Wholesale Beans</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> Ember & Grounds Specialty Café & Roastery. Crafted with warmth.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal Vanilla JavaScript for Interactivity -->
+    <script>
+        // 1. Sticky Navbar Styling on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // 3. Interactive Menu Category Filtering
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button state
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                menuItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 4. Live Open/Closed Status Indicator
+        function updateCafeStatus() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+            const hour = now.getHours() + now.getMinutes() / 60;
+
+            let isOpen = false;
+            if (day >= 1 && day <= 5) {
+                isOpen = hour >= 7 && hour < 18;
+            } else if (day === 6) {
+                isOpen = hour >= 7.5 && hour < 19;
+            } else if (day === 0) {
+                isOpen = hour >= 8 && hour < 17;
+            }
+
+            const statusText = document.getElementById('statusText');
+            const statusPill = document.getElementById('liveStatus');
+            const statusDot = statusPill.querySelector('.status-dot');
+
+            if (isOpen) {
+                statusText.textContent = 'Open Now • Brewing Fresh';
+            } else {
+                statusText.textContent = 'Currently Closed • Opens 7:00 AM';
+                statusPill.style.backgroundColor = 'rgba(184, 107, 67, 0.15)';
+                statusPill.style.color = '#9A5532';
+                statusDot.style.backgroundColor = '#9A5532';
+            }
+        }
+        updateCafeStatus();
+
+        // 5. Dynamic Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
